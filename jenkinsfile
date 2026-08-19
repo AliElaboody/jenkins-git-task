@@ -24,7 +24,7 @@ pipeline {
 
         stage('Success') {
             steps {
-                echo "Pipeline completed successfully!"
+                echo "Pipeline completed successfully!--Trigger Test"
             }
         }
     }
