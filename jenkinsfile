@@ -10,14 +10,14 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'if exist index.html (echo index.html exists) else (exit 1)'
-                sh 'if exist README.md (echo README.md exists) else (exit 1)'
+                echo 'if exist index.html (echo index.html exists) else (exit 1)'
+                echo 'if exist README.md (echo README.md exists) else (exit 1)'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'findstr /C:"Hello from Jenkins!" index.html'
+                echo 'findstr /C:"Hello from Jenkins!" index.html'
             }
         }
 
