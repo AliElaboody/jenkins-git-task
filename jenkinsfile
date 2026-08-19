@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                bat 'if exist index.html (echo index.html exists) else (exit 1)'
+                bat 'if exist README.md (echo README.md exists) else (exit 1)'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                bat 'findstr /C:"Hello from Jenkins!" index.html'
+            }
+        }
+
+        stage('Success') {
+            steps {
+                echo "Pipeline completed successfully!"
+            }
+        }
+    }
+}
